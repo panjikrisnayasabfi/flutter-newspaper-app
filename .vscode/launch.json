@@ -1,0 +1,49 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Development",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_dev.dart",
+      "args": ["--flavor", "dev"]
+    },
+
+    {
+      "name": "Test",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_test.dart",
+      "args": ["--flavor", "tes"]
+    },
+
+    {
+      "name": "Production",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_prod.dart",
+      "args": ["--flavor", "prod"]
+    },
+
+    {
+      "name": "flutter_newspaper_app",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "flutter_newspaper_app (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "flutter_newspaper_app (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
