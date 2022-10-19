@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "599351373847",
+    "project_id": "flutter-newspaper-apps",
+    "storage_bucket": "flutter-newspaper-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599351373847:android:793774b35f9cb531ab6c52",
+        "android_client_info": {
+          "package_name": "com.bfi.newspaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599351373847-a1kefa4tlcmck84qad1ogd98b09of0eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bfi.newspaper",
+            "certificate_hash": "0b83dc233554504ce4c7c5602723b658d37622b5"
+          }
+        },
+        {
+          "client_id": "599351373847-1pdmcd95p78nphicg1htla4b3v1c2la7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdShnqeEeGNqh-OMMUvHqFdMJABZdzskQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599351373847-1pdmcd95p78nphicg1htla4b3v1c2la7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
