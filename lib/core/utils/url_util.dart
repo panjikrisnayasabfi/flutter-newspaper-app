@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter_newspaper_app/core/resources/value.dart';
 
 class UrlString {
-  static String baseUrlGw = 'https://gateway-dev.bfi.co.id/';
+  // static String baseUrlGw = 'https://gateway-dev.bfi.co.id/';
+  static String baseUrlGw =
+      'https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=9b1b656d67a64dafbbd566239ede8e47';
   static String username = usernameConfigDev;
   static String password = usernameConfigDev;
 
