@@ -76,27 +76,34 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget lisnews(HomeModel homeModel) {
     return Column(
       children: [
-        (widget.homeduserdata?.user != "user")
-            ? Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.05,
-                color: Colors.red,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    )
-                  ],
+        // (widget.homeduserdata?.user != "user")
+        // ?
+        // Visibility(
+        // visible: false,
+        // child:
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.05,
+          color: (widget.homeduserdata?.user != "user")
+              ? Colors.red
+              : Color.fromARGB(0, 244, 67, 54),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                child: Text(
+                  "Login",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
+              ),
+              SizedBox(
+                width: 10,
               )
-            : Container(),
+            ],
+          ),
+          // ),
+        ),
+        // : Container(),
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.85,
