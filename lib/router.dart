@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_newspaper_app/feature/detail_news_screen/presentation/screen/detail_news_screen.dart';
 
 import 'core/utils/route_util.dart';
 import 'core/utils/strings_util.dart';
@@ -19,6 +20,14 @@ class Routers {
       case RouteUtil.loginRoute:
         return PageRouteBuilder<dynamic>(
           pageBuilder: (_, __, ___) => LoginScreen(),
+          settings: RouteSettings(name: settings.name),
+          transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
+              FadeTransition(opacity: a, child: c),
+        );
+
+      case RouteUtil.detailNewsRoute:
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (_, __, ___) => DetailNewsScreen(),
           settings: RouteSettings(name: settings.name),
           transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
               FadeTransition(opacity: a, child: c),
