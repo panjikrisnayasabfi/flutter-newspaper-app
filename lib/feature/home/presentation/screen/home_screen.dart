@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
-import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/bloc.dart';
+import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/home_bloc.dart';
+import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/home_event.dart';
+import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/home_state.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({this.homeduserdata});
+  const HomeScreen({this.homeduserdata});
   // final String? title;
-  Homeduserdata? homeduserdata;
+  final Homeduserdata? homeduserdata;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -74,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget lisnews(HomeModel homeModel) {
     return Column(
       children: [
-        (widget.homeduserdata?.user == "user")
+        (widget.homeduserdata?.user != "user")
             ? Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.05,
