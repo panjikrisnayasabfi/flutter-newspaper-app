@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_newspaper_app/core/utils/route_util.dart';
+import 'package:flutter_newspaper_app/feature/detail_news_screen/data/arguments_detail_news_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
 import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/home_bloc.dart';
@@ -110,15 +112,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView.builder(
             itemCount: homeModel.article?.length,
             itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.symmetric(vertical: 5),
-                child: Card(
-                  child: ListTile(
-                    leading: Image.network(
-                        homeModel.article![index].urlToImage.toString()),
-                    title: Text(homeModel.article![index].title.toString()),
-                    subtitle: Text(
-                        homeModel.article![index].content!.substring(0, 50)),
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteUtil.detailNewsRoute,
+                      arguments: ArgumentDetailNewsModel(homeModel.article!, index));
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  child: Card(
+                    child: ListTile(
+                      leading: Image.network(
+                          homeModel.article![index].urlToImage.toString()),
+                      title: Text(homeModel.article![index].title.toString()),
+                      subtitle: Text(
+                          homeModel.article![index].content!.substring(0, 50)),
+                    ),
                   ),
                 ),
               );

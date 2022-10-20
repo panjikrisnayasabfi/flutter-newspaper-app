@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
+import 'package:flutter_newspaper_app/core/utils/route_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/strings_util.dart';
@@ -24,9 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: DSText(data: Strings.loggingIn)),
         );
-
         Navigator.pushNamed(context, '/home-route',
             arguments: Homeduserdata(user: 'user'));
+        Navigator.pushNamed(context, RouteUtil.homeRoute);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

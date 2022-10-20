@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_newspaper_app/feature/detail_news_screen/data/arguments_detail_news_model.dart';
 import 'package:flutter_newspaper_app/feature/detail_news_screen/presentation/screen/detail_news_screen.dart';
+import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
-
-import 'package:flutter_newspaper_app/feature/detail_news_screen/presentation/screen/detail_news_screen.dart';
 import 'package:flutter_newspaper_app/feature/home/presentation/screen/home_screen.dart';
 
 import 'core/utils/route_util.dart';
@@ -40,9 +40,18 @@ class Routers {
               FadeTransition(opacity: a, child: c),
         );
 
-      case RouteUtil.detailNewsRoute:
+      case RouteUtil.homeRoute:
         return PageRouteBuilder<dynamic>(
-          pageBuilder: (_, __, ___) => DetailNewsScreen(),
+          pageBuilder: (_, __, ___) => HomeScreen(),
+          settings: RouteSettings(name: settings.name),
+          transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
+              FadeTransition(opacity: a, child: c),
+        );
+
+      case RouteUtil.detailNewsRoute:
+      final ArgumentDetailNewsModel argumentDetailNewsModel = settings.arguments as ArgumentDetailNewsModel;
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (_, __, ___) => DetailNewsScreen(argumentDetailNewsModel),
           settings: RouteSettings(name: settings.name),
           transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
               FadeTransition(opacity: a, child: c),

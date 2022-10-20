@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
 import 'package:flutter_newspaper_app/core/utils/strings_util.dart';
+import 'package:flutter_newspaper_app/feature/detail_news_screen/data/arguments_detail_news_model.dart';
+import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 
 class DetailNewsScreen extends StatefulWidget {
-  const DetailNewsScreen({Key? key}) : super(key: key);
+  const DetailNewsScreen(this.argumentDetailNewsModel);
+  final ArgumentDetailNewsModel argumentDetailNewsModel;
 
   @override
   State<DetailNewsScreen> createState() => _DetailNewsScreenState();
@@ -20,9 +23,10 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(
-                  'https://static.republika.co.id/uploads/images/inpicture_slide/detail-foto-nebula-carina-yang-diambil-dengan-instrumen-teleskop_220713094545-645.jpg',
-                ),
+                Image.network(widget
+                    .argumentDetailNewsModel
+                    .articles[widget.argumentDetailNewsModel.index]
+                    .urlToImage!),
                 SizedBox(
                   height: 16.0,
                 ),
@@ -31,7 +35,10 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                   child: Column(
                     children: [
                       DSText(
-                          data: 'Ini Judul Berita',
+                          data: widget
+                              .argumentDetailNewsModel
+                              .articles[widget.argumentDetailNewsModel.index]
+                              .title,
                           textStyle: DSTextStyle.mediumStyle),
                       SizedBox(
                         height: 8.0,
@@ -40,7 +47,10 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         children: [
                           Icon(Icons.person),
                           DSText(
-                            data: 'Author',
+                            data: widget
+                                .argumentDetailNewsModel
+                                .articles[widget.argumentDetailNewsModel.index]
+                                .author,
                             textStyle: DSTextStyle.defaultStyle,
                           ),
                           SizedBox(
@@ -48,7 +58,10 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                           ),
                           Icon(Icons.date_range),
                           DSText(
-                            data: 'Tanggal',
+                            data: widget
+                                .argumentDetailNewsModel
+                                .articles[widget.argumentDetailNewsModel.index]
+                                .publishedAt,
                             textStyle: DSTextStyle.defaultStyle,
                           ),
                         ],
@@ -57,7 +70,10 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         height: 16.0,
                       ),
                       DSText(
-                        data: Strings.loremIpsum,
+                        data: widget
+                            .argumentDetailNewsModel
+                            .articles[widget.argumentDetailNewsModel.index]
+                            .description,
                         textStyle: DSTextStyle.regularStyle,
                       ),
                     ],
