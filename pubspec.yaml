@@ -9,31 +9,31 @@ environment:
   sdk: ">=2.16.2 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-
   cupertino_icons: ^1.0.2
-  flutter_bloc: ^8.1.1
   dio: ^4.0.6
   equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  flutter_ds_bfi: ^0.0.2+26
+  flutter_screenutil: ^5.5.4
+  intl: ^0.17.0
   json_annotation: ^4.0.1
   json_serializable: ^6.3.1
   rxdart: ^0.27.5
-  intl: ^0.17.0
-  flutter_ds_bfi: ^0.0.2+26
 
 dev_dependencies:
+  change_app_package_name: ^1.1.0
   flutter_test:
     sdk: flutter
   mockito: ^5.2.0
-  change_app_package_name: ^1.1.0
   test: any
 
 flutter:
   uses-material-design: true
   # Remove Comment if you add Asset for this Project
-  # assets:
-  #   - assets/imgs/
+  assets:
+    - assets/images/
   fonts:
     - family: Poppins
       fonts:
