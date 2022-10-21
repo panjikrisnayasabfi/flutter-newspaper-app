@@ -53,7 +53,7 @@ flutter {
 dependencies {
     implementation 'com.google.firebase:firebase-core:9.6.1'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-core:9.6.1'
 }
 
- apply plugin: 'com.google.gms.google-services'
-
+apply plugin: 'com.google.gms.google-services'

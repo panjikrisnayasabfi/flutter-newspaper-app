@@ -138,8 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           scale: 7,
                         ),
                         title: Text(homeModel.article![index].title!),
-                        subtitle:
-                            Text(homeModel.article![index].content ?? ''),
+                        subtitle: Text(homeModel.article?[index].content ?? ''),
                       ),
                     ),
                   ),

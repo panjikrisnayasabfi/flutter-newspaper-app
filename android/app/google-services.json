@@ -37,6 +37,13 @@
             {
               "client_id": "599351373847-1pdmcd95p78nphicg1htla4b3v1c2la7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "599351373847-f0qo5e3666p7kbpsn0ai24gdh9hltimv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bfi.newspaper"
+              }
             }
           ]
         }
