@@ -56,8 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _textFormField(TextEditingController controller, String hintText) {
+  Widget _textFormField(
+      Key key, TextEditingController controller, String hintText) {
     return TextFormField(
+      key: key,
       controller: controller,
       decoration: InputDecoration(hintText: hintText),
       validator: (value) {
@@ -108,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       _textFormField(
+                        ValueKey('usernameTextfield'),
                         _usernameController,
                         Strings.username,
                       ),
@@ -115,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 8,
                       ),
                       _textFormField(
+                        ValueKey('passwordTextfield'),
                         _passwordController,
                         Strings.password,
                       ),
@@ -124,10 +128,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 RSizedBox(
                   height: 32,
                 ),
-                DSFilledButton(
-                  text: 'Login',
-                  buttonState: DSButtonState.Active,
-                  onTap: () => _login(),
+                Container(
+                  key: ValueKey('buttonLogin'),
+                  child: DSFilledButton(
+                    text: 'Login',
+                    buttonState: DSButtonState.Active,
+                    onTap: () => _login(),
+                  ),
                 ),
                 RSizedBox(
                   height: 16,

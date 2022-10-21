@@ -49,9 +49,9 @@ class Routers {
         );
 
       case RouteUtil.detailNewsRoute:
-      final ArgumentDetailNewsModel argumentDetailNewsModel = settings.arguments as ArgumentDetailNewsModel;
+      final Article article = settings.arguments as Article;
         return PageRouteBuilder<dynamic>(
-          pageBuilder: (_, __, ___) => DetailNewsScreen(argumentDetailNewsModel),
+          pageBuilder: (_, __, ___) => DetailNewsScreen(article),
           settings: RouteSettings(name: settings.name),
           transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
               FadeTransition(opacity: a, child: c),

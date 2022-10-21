@@ -12,11 +12,17 @@ class Homestatenewsinitial extends HomeState {}
 class Homestatenewsloading extends HomeState {}
 
 class Homestatenewsloaded extends HomeState {
-  final HomeModel homeModel;
-  const Homestatenewsloaded(this.homeModel);
+  final HomeModel? homeModel;
+  const Homestatenewsloaded({this.homeModel});
+
+  @override
+  List<Object?> get props => [homeModel];
 }
 
 class Homestatenewserror extends HomeState {
   final String? message;
-  const Homestatenewserror(this.message);
+  const Homestatenewserror({this.message});
+
+  @override
+  List<Object?> get props => [message];
 }

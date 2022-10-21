@@ -11,12 +11,12 @@ class Homebloc extends Bloc<HomeEvent, HomeState> {
       try {
         emit(Homestatenewsloading());
         final newslist = await homeRepo.fectnewslist();
-        emit(Homestatenewsloaded(newslist));
+        emit(Homestatenewsloaded(homeModel: newslist));
         if (newslist.error != null) {
-          emit(Homestatenewserror(newslist.error));
+          emit(Homestatenewserror(message: newslist.error));
         }
       } catch (e) {
-        emit(Homestatenewserror('nework eror mybe ??'));
+        emit(Homestatenewserror(message: e.toString()));
       }
     });
   }

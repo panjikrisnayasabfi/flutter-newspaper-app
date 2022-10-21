@@ -5,8 +5,8 @@ import 'package:flutter_newspaper_app/feature/detail_news_screen/data/arguments_
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 
 class DetailNewsScreen extends StatefulWidget {
-  const DetailNewsScreen(this.argumentDetailNewsModel);
-  final ArgumentDetailNewsModel argumentDetailNewsModel;
+  const DetailNewsScreen(this.article);
+  final Article article;
 
   @override
   State<DetailNewsScreen> createState() => _DetailNewsScreenState();
@@ -23,10 +23,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(widget
-                    .argumentDetailNewsModel
-                    .articles[widget.argumentDetailNewsModel.index]
-                    .urlToImage!),
+                Image.network(widget.article.urlToImage!),
                 SizedBox(
                   height: 16.0,
                 ),
@@ -35,10 +32,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                   child: Column(
                     children: [
                       DSText(
-                          data: widget
-                              .argumentDetailNewsModel
-                              .articles[widget.argumentDetailNewsModel.index]
-                              .title,
+                          data: widget.article.title,
                           textStyle: DSTextStyle.mediumStyle),
                       SizedBox(
                         height: 8.0,
@@ -47,10 +41,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         children: [
                           Icon(Icons.person),
                           DSText(
-                            data: widget
-                                .argumentDetailNewsModel
-                                .articles[widget.argumentDetailNewsModel.index]
-                                .author,
+                            data: widget.article.author,
                             textStyle: DSTextStyle.defaultStyle,
                           ),
                           SizedBox(
@@ -58,10 +49,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                           ),
                           Icon(Icons.date_range),
                           DSText(
-                            data: widget
-                                .argumentDetailNewsModel
-                                .articles[widget.argumentDetailNewsModel.index]
-                                .publishedAt,
+                            data: widget.article.publishedAt,
                             textStyle: DSTextStyle.defaultStyle,
                           ),
                         ],
@@ -70,10 +58,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         height: 16.0,
                       ),
                       DSText(
-                        data: widget
-                            .argumentDetailNewsModel
-                            .articles[widget.argumentDetailNewsModel.index]
-                            .description,
+                        data: widget.article.content,
                         textStyle: DSTextStyle.regularStyle,
                       ),
                     ],

@@ -49,6 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Image.asset(
                     Strings.appLogoPath,
+                    key: ValueKey('imageSplashScreen'),
                     width: 160.w,
                     height: 160.w,
                   ),
