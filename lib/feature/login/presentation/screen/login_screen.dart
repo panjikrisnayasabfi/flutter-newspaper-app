@@ -25,9 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: DSText(data: Strings.loggingIn)),
         );
-        Navigator.pushNamed(context, '/home-route',
+        Navigator.pushNamed(context, RouteUtil.homeRoute,
             arguments: Homeduserdata(user: 'user'));
-        Navigator.pushNamed(context, RouteUtil.homeRoute);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -74,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _continueAsGuestButton() {
     return TextButton(
       onPressed: () {
-        Navigator.pushNamed(context, '/home-route',
+        Navigator.pushNamed(context, RouteUtil.homeRoute,
             arguments: Homeduserdata(user: 'guise'));
       },
       child: DSText(

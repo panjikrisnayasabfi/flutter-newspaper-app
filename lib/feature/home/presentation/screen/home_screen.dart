@@ -85,32 +85,29 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // (widget.homeduserdata?.user != "user")
-          // ?
-          // Visibility(
-          // visible: false,
-          // child:
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.05,
-            color: (widget.homeduserdata?.user != "user")
-                ? Colors.red
-                : Color.fromARGB(0, 244, 67, 54),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                InkWell(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+          Opacity(
+            opacity: (widget.homeduserdata?.user != "user") ? 1.0 : 0.0,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
+              color: Colors.red,
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                )
-              ],
+                  SizedBox(
+                    width: 10,
+                  )
+                ],
+              ),
+              // ),
             ),
-            // ),
           ),
           // : Container(),
           Container(
@@ -134,11 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Card(
                       child: ListTile(
                         leading: Image.network(
-                          homeModel.article![index].urlToImage!,
+                          homeModel.article?[index].urlToImage ?? '',
                           scale: 7,
                         ),
-                        title: Text(homeModel.article![index].title!),
-                        subtitle: Text(homeModel.article?[index].content ?? ''),
+                        title: Text(homeModel.article?[index].title ?? ''),
+                        subtitle: Text(
+                          homeModel.article?[index].content ?? '',
+                          maxLines: 2,
+                        ),
                       ),
                     ),
                   ),

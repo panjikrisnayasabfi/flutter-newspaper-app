@@ -14,16 +14,6 @@ import 'feature/splash_screen/presentation/screen/splash_screen.dart';
 class Routers {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/home-route':
-        final Homeduserdata? homeduserdata =
-            settings.arguments as Homeduserdata;
-        return PageRouteBuilder<dynamic>(
-            pageBuilder: (_, __, ___) =>
-                HomeScreen(homeduserdata: homeduserdata),
-            settings: RouteSettings(name: settings.name),
-            transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
-                FadeTransition(opacity: a, child: c));
-
       case RouteUtil.splashRoute:
         return PageRouteBuilder<dynamic>(
           pageBuilder: (_, __, ___) => SplashScreen(),
@@ -41,15 +31,17 @@ class Routers {
         );
 
       case RouteUtil.homeRoute:
+        final Homeduserdata? homeduserdata =
+            settings.arguments as Homeduserdata;
         return PageRouteBuilder<dynamic>(
-          pageBuilder: (_, __, ___) => HomeScreen(),
+          pageBuilder: (_, __, ___) => HomeScreen(homeduserdata: homeduserdata),
           settings: RouteSettings(name: settings.name),
           transitionsBuilder: (_, Animation<double> a, __, Widget c) =>
               FadeTransition(opacity: a, child: c),
         );
 
       case RouteUtil.detailNewsRoute:
-      final Article article = settings.arguments as Article;
+        final Article article = settings.arguments as Article;
         return PageRouteBuilder<dynamic>(
           pageBuilder: (_, __, ___) => DetailNewsScreen(article),
           settings: RouteSettings(name: settings.name),
