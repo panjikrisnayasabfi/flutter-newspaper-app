@@ -19,23 +19,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final _loginFormKey = GlobalKey<FormState>();
 
   void _login() {
-    if (_loginFormKey.currentState?.validate() ?? false) {
-      if (_usernameController.text == Strings.admin &&
-          _passwordController.text == Strings.admin) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: DSText(data: Strings.loggingIn)),
-        );
-        Navigator.pushNamed(context, RouteUtil.homeRoute,
-            arguments: Homeduserdata(user: 'user'));
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: DSText(data: Strings.loginFailed),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: DSText(data: Strings.loggingIn)),
+    );
+    Navigator.pushNamed(context, RouteUtil.homeRoute,
+        arguments: Homeduserdata(user: 'user'));
   }
 
   Widget _appTitleAndLogo() {

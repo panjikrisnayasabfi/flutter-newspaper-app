@@ -96,6 +96,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
+                    onTap: () =>
+                        Navigator.pushNamed(context, RouteUtil.loginRoute),
                     child: Text(
                       "Login",
                       style: TextStyle(color: Colors.white, fontSize: 20),
