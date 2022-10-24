@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
-import 'package:flutter_newspaper_app/core/utils/strings_util.dart';
-import 'package:flutter_newspaper_app/feature/detail_news_screen/data/arguments_detail_news_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 
 class DetailNewsScreen extends StatefulWidget {
@@ -16,6 +14,9 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [],
+      ),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
@@ -44,9 +45,13 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                             data: widget.article.author,
                             textStyle: DSTextStyle.defaultStyle,
                           ),
-                          SizedBox(
-                            width: 8.0,
-                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Row(
+                        children: [
                           Icon(Icons.date_range),
                           DSText(
                             data: widget.article.publishedAt,
@@ -67,26 +72,6 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 24.0, left: 8.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Row(
-                children: const <Widget>[
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                    size: 18,
-                  ),
-                  SizedBox(width: 4),
-                  Text('Back',
-                      style: TextStyle(color: Colors.white, fontSize: 14))
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );

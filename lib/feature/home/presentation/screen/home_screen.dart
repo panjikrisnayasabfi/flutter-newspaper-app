@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           // title: Text(widget.title),
           actions: [
-            Center(child: Text("Nesw Sport")),
+            Center(child: Text("News Sport")),
             SizedBox(
               width: 10,
             ),
@@ -125,8 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, RouteUtil.detailNewsRoute,
-                        arguments: homeModel.article![index]);
+                    if (widget.homeduserdata?.user == 'user') {
+                      Navigator.pushNamed(context, RouteUtil.detailNewsRoute,
+                          arguments: homeModel.article![index]);
+                    }
                   },
                   child: Container(
                     margin: EdgeInsets.symmetric(vertical: 5),

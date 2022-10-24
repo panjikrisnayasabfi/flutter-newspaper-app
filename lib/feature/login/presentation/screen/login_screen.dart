@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return TextButton(
       onPressed: () {
         Navigator.pushNamed(context, RouteUtil.homeRoute,
-            arguments: Homeduserdata(user: 'guise'));
+            arguments: Homeduserdata(user: 'guest'));
       },
       child: DSText(
         data: 'Continue as Guest',
