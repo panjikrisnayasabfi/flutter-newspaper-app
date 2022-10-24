@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
 import 'package:flutter_newspaper_app/core/utils/route_util.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
@@ -85,33 +86,45 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Opacity(
-            opacity: (widget.homeduserdata?.user != "user") ? 1.0 : 0.0,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.05,
-              color: Colors.red,
-
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () =>
-                        Navigator.pushNamed(context, RouteUtil.loginRoute),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  )
-                ],
-              ),
-              // ),
+          Padding(
+            padding: (widget.homeduserdata?.user != "user")
+                ? EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0)
+                : EdgeInsets.all(0),
+            child: Opacity(
+              opacity: (widget.homeduserdata?.user != "user") ? 1.0 : 0.0,
+              child: (widget.homeduserdata?.user != "user")
+                  ? Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.red,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          DSText(
+                            data: 'Anda Masuk Sebagai Guest',
+                            textStyle: DSTextStyle.regularStyle
+                                .copyWith(color: Colors.white),
+                          ),
+                          InkWell(
+                            onTap: () => Navigator.pushNamed(
+                                context, RouteUtil.loginRoute),
+                            child: DSText(
+                                data: 'Login',
+                                textStyle: DSTextStyle.regularStyle.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                      // ),
+                    )
+                  : Container(),
             ),
           ),
-          // : Container(),
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.85,
