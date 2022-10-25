@@ -83,88 +83,85 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget lisnews(HomeModel homeModel) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: (widget.homeduserdata?.user != "user")
-                ? EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0)
-                : EdgeInsets.all(0),
-            child: Opacity(
-              opacity: (widget.homeduserdata?.user != "user") ? 1.0 : 0.0,
-              child: (widget.homeduserdata?.user != "user")
-                  ? Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.red,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          DSText(
-                            data: 'Anda Masuk Sebagai Guest',
-                            textStyle: DSTextStyle.regularStyle
-                                .copyWith(color: Colors.white),
-                          ),
-                          InkWell(
-                            onTap: () => Navigator.pushNamed(
-                                context, RouteUtil.loginRoute),
-                            child: DSText(
-                                data: 'Login',
-                                textStyle: DSTextStyle.regularStyle.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      ),
-                      // ),
-                    )
-                  : Container(),
-            ),
+    return Column(
+      children: [
+        Padding(
+          padding: (widget.homeduserdata?.user != "user")
+              ? EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0)
+              : EdgeInsets.all(0),
+          child: Opacity(
+            opacity: (widget.homeduserdata?.user != "user") ? 1.0 : 0.0,
+            child: (widget.homeduserdata?.user != "user")
+                ? Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.red,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        DSText(
+                          data: 'Anda Masuk Sebagai Guest',
+                          textStyle: DSTextStyle.regularStyle
+                              .copyWith(color: Colors.white),
+                        ),
+                        InkWell(
+                          onTap: () => Navigator.pushNamed(
+                              context, RouteUtil.loginRoute),
+                          child: DSText(
+                              data: 'Login',
+                              textStyle: DSTextStyle.regularStyle.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    ),
+                    // ),
+                  )
+                : Container(),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.85,
-            child: ListView.separated(
-              separatorBuilder: (BuildContext context, int index) {
-                return (SizedBox(
-                  height: 8.0,
-                ));
-              },
-              itemCount: homeModel.article!.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    if (widget.homeduserdata?.user == 'user') {
-                      Navigator.pushNamed(context, RouteUtil.detailNewsRoute,
-                          arguments: homeModel.article![index]);
-                    }
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    child: Card(
-                      child: ListTile(
-                        leading: Image.network(
-                          homeModel.article?[index].urlToImage ?? '',
-                          scale: 7,
-                        ),
-                        title: Text(homeModel.article?[index].title ?? ''),
-                        subtitle: Text(
-                          homeModel.article?[index].content ?? '',
-                          maxLines: 2,
-                        ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: widget.homeduserdata?.user == 'guest'
+              ? MediaQuery.of(context).size.height * 0.77
+              : MediaQuery.of(context).size.height * 0.85,
+          child: ListView.builder(
+            key: Key('list_news'),
+            itemCount: homeModel.article!.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                key: Key('news_$index'),
+                onTap: () {
+                  if (widget.homeduserdata?.user == 'user') {
+                    Navigator.pushNamed(context, RouteUtil.detailNewsRoute,
+                        arguments: homeModel.article![index]);
+                  }
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  child: Card(
+                    child: ListTile(
+                      leading: Image.network(
+                        homeModel.article?[index].urlToImage ?? '',
+                        scale: 7,
+                      ),
+                      title: Text(homeModel.article?[index].title ?? ''),
+                      subtitle: Text(
+                        homeModel.article?[index].content ?? '',
+                        maxLines: 2,
                       ),
                     ),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
