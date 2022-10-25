@@ -60,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _continueAsGuestButton() {
     return TextButton(
+      key: ValueKey('buttonGuest'),
       onPressed: () {
         Navigator.pushNamed(context, RouteUtil.homeRoute,
             arguments: Homeduserdata(user: 'guest'));
