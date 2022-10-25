@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
+import 'package:flutter_newspaper_app/core/utils/strings_util.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 
 class DetailNewsScreen extends StatefulWidget {
@@ -24,7 +25,9 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(widget.article.urlToImage!),
+                Image.network(
+                  widget.article.urlToImage ?? Strings.noImagePath,
+                ),
                 SizedBox(
                   height: 16.0,
                 ),
@@ -42,7 +45,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         children: [
                           Icon(Icons.person),
                           DSText(
-                            data: widget.article.author,
+                            data: widget.article.author ?? 'No Author',
                             textStyle: DSTextStyle.defaultStyle,
                           ),
                         ],
@@ -63,7 +66,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                         height: 16.0,
                       ),
                       DSText(
-                        data: widget.article.content,
+                        data: widget.article.content ?? 'No content',
                         textStyle: DSTextStyle.regularStyle,
                       ),
                     ],

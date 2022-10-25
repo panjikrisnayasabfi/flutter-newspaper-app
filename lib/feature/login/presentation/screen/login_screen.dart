@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _continueAsGuestButton() {
     return TextButton(
-      key: ValueKey('buttonGuest'),
+      key: Key('continue_as_guest'),
       onPressed: () {
         Navigator.pushNamed(context, RouteUtil.homeRoute,
             arguments: Homeduserdata(user: 'guest'));
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 32,
                 ),
                 Container(
-                  key: ValueKey('buttonLogin'),
+                  key: ValueKey('button_login'),
                   child: DSFilledButton(
                     text: 'Login',
                     buttonState: DSButtonState.Active,

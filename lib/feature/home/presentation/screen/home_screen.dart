@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ds_bfi/flutter_ds_bfi.dart';
 import 'package:flutter_newspaper_app/core/utils/route_util.dart';
+import 'package:flutter_newspaper_app/core/utils/strings_util.dart';
 import 'package:flutter_newspaper_app/feature/home/data/home_model.dart';
 import 'package:flutter_newspaper_app/feature/home/data/homeuserdata.dart';
 import 'package:flutter_newspaper_app/feature/home/presentation/bloc/home_bloc/home_bloc.dart';
@@ -36,13 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          // title: Text(widget.title),
           actions: [
             Center(child: Text("News Sport")),
             SizedBox(
               width: 10,
             ),
-            // CircleAvatar(),
             SizedBox(
               width: 10,
             ),
@@ -109,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               .copyWith(color: Colors.white),
                         ),
                         InkWell(
+                          key: Key('guest_login_badge'),
                           onTap: () => Navigator.pushNamed(
                               context, RouteUtil.loginRoute),
                           child: DSText(
@@ -146,7 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Card(
                     child: ListTile(
                       leading: Image.network(
-                        homeModel.article?[index].urlToImage ?? '',
+                        homeModel.article?[index].urlToImage ??
+                            Strings.noImagePath,
                         scale: 7,
                       ),
                       title: Text(homeModel.article?[index].title ?? ''),
