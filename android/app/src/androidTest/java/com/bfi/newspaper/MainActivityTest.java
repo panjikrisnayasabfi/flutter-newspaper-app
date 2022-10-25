@@ -1,4 +1,4 @@
-package com.pszklarska.flutter_integration_test;
+package com.bfi.newspaper;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;
