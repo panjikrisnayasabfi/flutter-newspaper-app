@@ -22,7 +22,7 @@ void main() {
 
     expect(find.byType(LoginScreen), findsOneWidget);
 
-    await tester.tap(find.byKey(Key('buttonGuest')));
+    await tester.tap(find.byKey(Key('continue_as_guest')));
 
     await tester.pumpAndSettle();
 
@@ -48,11 +48,5 @@ void main() {
     );
 
     expect(itemNewsFinder, findsOneWidget);
-
-    // await tester.tap(find.byKey(Key('news_10')));
-
-    // await tester.pumpAndSettle();
-
-    // expect(find.byType(DetailNewsScreen), findsOneWidget);
   });
 }

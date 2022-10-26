@@ -21,7 +21,7 @@ void main() {
     expect(passwordTextfield, findsOneWidget);
     await tester.enterText(passwordTextfield, 'admin');
 
-    await tester.tap(find.byKey(Key('buttonLogin')));
+    await tester.tap(find.byKey(Key('button_login')));
 
     await tester.pumpAndSettle(Duration(seconds: 4));
 
