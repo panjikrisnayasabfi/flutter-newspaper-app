@@ -13,6 +13,9 @@ class Strings {
   static const loggingIn = 'Logging in...';
   static const admin = 'admin';
   static const loginFailed = 'Login failed, wrong username or password';
+  static const newsSport = 'News Sport';
+  static const andaMasukSebagaiGuest = 'Anda Masuk Sebagai Guest';
+  static const noText = '-';
 
   // asset path
   static const appLogoPath = 'assets/images/app_logo.png';
